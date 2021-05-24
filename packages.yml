@@ -1,0 +1,5 @@
+packages:
+  - package: fishtown-analytics/codegen
+    version: 0.3.1
+  - package: fishtown-analytics/dbt_utils
+    version: 0.6.4
