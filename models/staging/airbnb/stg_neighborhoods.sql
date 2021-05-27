@@ -1,11 +1,20 @@
 {{ config(materialized='view') }}
 
-with renamed as (
+with source as (
 
-select
-  neighbourhood_group   as neighborhood_group,
-  neighbourhood           as neighborhood_name
-from {{ source('airbnb','neighbourhoods') }}
+  select * from {{ source('airbnb','neighbourhoods') }}
+
+),
+
+renamed as (
+
+  select
+    {{ dbt_utils.surrogate_key(
+        'neighbouhood'
+    ) }} as neighborhood_id,
+    neighbourhood_group as neighborhood_group,
+    neighbourhood as neighborhood_name
+  from source
 
 )
 

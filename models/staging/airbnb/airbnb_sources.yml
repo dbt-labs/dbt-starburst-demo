@@ -2,11 +2,10 @@ version: 2
 
 sources:
   - name: airbnb
-    schema: airbnb
+    database: airbnb
     tables:
       - name: calendar
         description: Availability calendar for listings
-        
         columns:
           - name: listing_id
             description: Foreign key to Listings table
@@ -22,14 +21,12 @@ sources:
 
       - name: neighbourhoods
         description: Neighborhoods related to listings
-        
         columns:
           - name: neighbourhood_group
           - name: neighbourhood
 
       - name: reviews
         description: Reviews from stays
-        
         columns:
           - name: listing_id
             description: Foreign key to Listings table
@@ -48,7 +45,6 @@ sources:
 
       - name: listings
         description: Airbnb listings
-        
         columns:
           - name: id
             description: Primary key
