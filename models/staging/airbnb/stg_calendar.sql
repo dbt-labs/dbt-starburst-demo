@@ -9,10 +9,10 @@ with source as (
 renamed as (
 
   select
-    {{ dbt_utils.surrogate_key(
-        'listing_id',
-        'availability_date'
-    ) }} as calendar_id,
+    {{ dbt_utils.surrogate_key([
+      'listing_id',
+      'date'
+    ]) }} as calendar_id,
     listing_id,
     price as price_in_dollars,
     adjusted_price as adjusted_price_in_dollars,

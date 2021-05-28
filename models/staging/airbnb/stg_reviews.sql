@@ -14,7 +14,7 @@ renamed as (
     reviewer_id,
     reviewer_name,
     comments,
-    to_date(date) as review_date
+    to_date(date) as reviewed_at
   from source
 
 )

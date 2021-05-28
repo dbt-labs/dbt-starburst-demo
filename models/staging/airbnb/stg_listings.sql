@@ -18,7 +18,7 @@ renamed as (
         room_type,
         accommodates as num_accommodates,
         bathrooms as num_bathrooms,
-        bathrooms_text as num_bathrooms text,
+        bathrooms_text as num_bathrooms_text,
         beds as num_beds,
         amenities,
         price as price_in_dollars,
@@ -58,10 +58,10 @@ renamed as (
         longitude,
         
         -- Calendar details
-        availability_30 as availability_next_30_days,
-        availability_60 as availability_next_60_days,
-        availability_90 as availability_next_90_days,
-        availability_365 as availability_next_365_days,
+        --availability_30 as availability_next_30_days,
+        --availability_60 as availability_next_60_days,
+        --availability_90 as availability_next_90_days,
+        --availability_365 as availability_next_365_days,
         -- number_of_reviews,              
         -- number_of_reviews_ltm,
         -- number_of_reviews_l30d,
