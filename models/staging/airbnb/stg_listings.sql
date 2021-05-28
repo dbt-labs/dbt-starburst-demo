@@ -30,12 +30,6 @@ renamed as (
         calculated_host_listings_count_entire_homes,
         calculated_host_listings_count_private_rooms,
         calculated_host_listings_count_shared_rooms,
-        -- minimum_minimum_nights,
-        -- maximum_minimum_nights,
-        -- minimum_maximum_nights,
-        -- maximum_maximum_nights,
-        -- minimum_nights_avg_ntm,
-        -- maximum_nights_avg_ntm,
 
         -- Host details / dimensions
         host_url,
@@ -56,17 +50,6 @@ renamed as (
         neighborhood_overview as neighborhood_overview,
         latitude,
         longitude,
-        
-        -- Calendar details
-        --availability_30 as availability_next_30_days,
-        --availability_60 as availability_next_60_days,
-        --availability_90 as availability_next_90_days,
-        --availability_365 as availability_next_365_days,
-        -- number_of_reviews,              
-        -- number_of_reviews_ltm,
-        -- number_of_reviews_l30d,
-        -- first_review,
-        -- last_review,
 
         -- Review details
         review_scores_rating,
