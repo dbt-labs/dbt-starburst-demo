@@ -17,7 +17,7 @@ renamed as (
         property_type,
         room_type,
         accommodates as num_accommodates,
-        bathrooms as num_bathrooms,
+        float(regexp_extract(bathrooms_text, '([\\d\.]+).*', 1)) as num_bathrooms,
         bathrooms_text as num_bathrooms_text,
         beds as num_beds,
         amenities,
@@ -74,4 +74,4 @@ renamed as (
 
 )
 
-select * from renamed
+select num_bathrooms, num_bathrooms_text from renamed

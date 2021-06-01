@@ -1,3 +1,9 @@
 {{ config(materialized='table') }}
 
-select * from {{ ref('stg_neighborhoods') }}
+with source as (
+
+    select * from {{ ref('stg_airbnb_neighborhoods') }}
+
+)
+
+select * from source

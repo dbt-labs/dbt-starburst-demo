@@ -2,7 +2,7 @@
 
 with listings as (
 
-    select * from {{ ref('stg_listings') }}
+    select * from {{ ref('stg_airbnb_listings') }}
 
 ),
 

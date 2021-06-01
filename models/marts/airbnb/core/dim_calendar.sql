@@ -1,3 +1,9 @@
 {{ config(materialized='table') }}
 
-select * from {{ ref('stg_calendar') }}
+with source as (
+
+    select * from {{ ref('stg_airbnb_calendar') }}
+
+)
+
+select * from source
