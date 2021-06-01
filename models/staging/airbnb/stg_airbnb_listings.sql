@@ -18,7 +18,7 @@ renamed as (
         room_type,
         accommodates as num_accommodates,
         float(regexp_extract(bathrooms_text, '([\\d\.]+).*', 1)) as num_bathrooms,
-        bathrooms_text as num_bathrooms_text,
+        bathrooms_text as bathrooms_description,
         beds as num_beds,
         amenities,
         price as price_in_dollars,
