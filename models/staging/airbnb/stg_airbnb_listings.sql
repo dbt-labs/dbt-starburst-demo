@@ -74,4 +74,4 @@ renamed as (
 
 )
 
-select num_bathrooms, num_bathrooms_text from renamed
+select * from renamed
