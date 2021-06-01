@@ -30,7 +30,7 @@ final as (
         listings.room_type,
         listings.num_accommodates,
         listings.num_bathrooms,
-        listings.num_bathrooms_text,
+        listings.bathrooms_description,
         listings.num_beds,
         listings.amenities,
         listings.price_in_dollars,
