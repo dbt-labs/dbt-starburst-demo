@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: airbnb
-    database: airbnb
+    schema: airbnb
     tables:
       - name: calendar
         description: Availability calendar for listings
