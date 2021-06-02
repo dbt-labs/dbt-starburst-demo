@@ -25,8 +25,8 @@ from
     merged
     -- have to manually map strings in the pivot operation
     pivot(sum(gross_item_sales_amount) for name in (
-        'goldenrod lavender spring chocolate lace',
-        'blush thistle blue yellow saddle'
+      'goldenrod lavender spring chocolate lace' as goldenrod_lavender_spring_chocolate_lace,
+      'blush thistle blue yellow saddle' as blush_thistle_blue_yellow_saddle
     ))
 
 order by order_year
