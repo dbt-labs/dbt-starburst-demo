@@ -2,4 +2,6 @@ packages:
   - package: fishtown-analytics/codegen
     version: 0.3.1
   - package: fishtown-analytics/dbt_utils
-    version: 0.6.4
+    version: 0.6.4    
+  - package: fishtown-analytics/spark_utils
+    version: 0.2.1
