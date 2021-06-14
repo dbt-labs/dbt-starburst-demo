@@ -10,7 +10,6 @@ sources:
           - name: listing_id
             description: Foreign key to Listings table
             tests: 
-              - unique
               - not_null
           - name: date
           - name: available
@@ -31,7 +30,6 @@ sources:
           - name: listing_id
             description: Foreign key to Listings table
             tests:
-              - unique
               - not_null
           - name: id
             description: Review ID
