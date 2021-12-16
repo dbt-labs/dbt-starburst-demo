@@ -7,7 +7,7 @@
 
 with orders as (
     
-    select * from {{ ref('stg_tpch_orders') }} where order_date > '2021-01-01'
+    select * from {{ ref('stg_tpch_orders') }}
 
 ),
 order_item as (
