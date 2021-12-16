@@ -2,7 +2,7 @@
     config(
         materialized='incremental',
         unique_key='order_key',
-        incremental_strategy='merge' -- just merge or append with delta format in dbt_project.yml
+        incremental_strategy='merge'
     )
 }}
 
