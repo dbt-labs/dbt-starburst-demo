@@ -1,0 +1,64 @@
+version: 2
+
+sources:
+  - name: snowplow
+    database: analytics
+    schema: snowplow_external
+    loader: S3
+    loaded_at_field: collector_tstamp
+  
+    tables:
+      - name: event
+        external:
+          location: "s3://bucket/path"        # Amazon S3 path prefix
+          row_format: >                       # Hive specification
+            serde 'org.openx.data.jsonserde.JsonSerDe'
+            with serdeproperties (
+                'strip.outer.array'='false'
+            )
+          partitions:
+            - name: appId
+              data_type: varchar(255)
+              vals:         # list of values
+                - dev
+                - prod
+              path_macro: dbt_external_tables.key_value
+                  # Macro to convert partition value to file path specification.
+                  # This "helper" macro is defined in the package, but you can use
+                  # any custom macro that takes keyword arguments 'name' + 'value'
+                  # and returns the path as a string
+                  # If multiple partitions, order matters for compiling S3 path
+            - name: collector_date
+              data_type: date
+              vals:         # macro w/ keyword args to generate list of values
+                macro: dbt.dates_in_range
+                args:
+                  start_date_str: '2019-08-01'
+                  end_date_str: '{{modules.datetime.date.today().strftime("%Y-%m-%d")}}'
+                  in_fmt: "%Y-%m-%d"
+                  out_fmt: "%Y-%m-%d"
+              path_macro: dbt_external_tables.year_month_day
+          
+          # specify ALL columns to extract, unnest, or otherwise parse from the source files.
+          # all Redshift external tables natively include `$path` and `$size` pseudocolumns, 
+          # so there is no need to specify those here.
+        columns:
+          - name: app_id
+            data_type: varchar(255)
+            description: "Application ID"
+          - name: domain_sessionidx
+            data_type: int
+            description: "A visit / session index"
+
+            # Spectrum timestamp columns *must* be in the format `yyyy-MM-dd HH:mm:ss.SSSSSS`
+            # (e.g. '2017-05-01 11:30:59.000000'). Otherwise, load as varchar and
+            # parse/cast in a staging model.
+          - name: etl_tstamp
+            data_type: varchar(32)
+            description: "Timestamp event began ETL"
+
+          # Spectrum columns with nested values require Hive-style specifications.
+          # I usually give up, make them big varchars, and parse in a staging model.
+          - name: contexts
+            data_type: varchar(65000)     
+            description: "Contexts attached to event by Tracker"
