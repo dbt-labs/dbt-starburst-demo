@@ -25,9 +25,10 @@ exposures:
     
     # documentation purposes for point of contact if stuff breaks
     owner:
-      name: DBT User Bob
-      email: dbtuserbob@getdbt.com
+      name: Jerco
+      email: jerco@dbt-plus-trino.com
     
     # IMPORTANT: determines the lineage relationship of the exposure construct to the rest of your DAG
     depends_on:
-      - ref('agg_yearly_parts_hardcoded_pivot')
+      - ref('fct_order_items')
+      - ref('dim_parts')

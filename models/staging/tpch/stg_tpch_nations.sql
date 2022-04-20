@@ -8,12 +8,28 @@ renamed as (
 
     select
     
-        n_nationkey as nation_key,
-        n_name as name,
-        n_regionkey as region_key,
-        n_comment as comment
+        nationkey as nation_key,
+        name as name,
+        regionkey as region_key,
+        comment as comment
 
     from source
+    
+    union all (
+    
+    -- make sure to test for dupes!!!
+    select
+    
+      nationkey as nation_key,
+      null as name,
+      null as region_key,
+      null as comment
+      
+    from source
+    
+    limit 1
+  
+  )
 
 )
 

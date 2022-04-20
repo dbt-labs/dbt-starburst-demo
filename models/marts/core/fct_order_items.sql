@@ -1,9 +1,4 @@
-{{
-    config(
-        materialized = 'table',
-        tags = ['finance']
-    )
-}}
+{{ config(tags = ['finance']) }}
 
 with order_item as (
     

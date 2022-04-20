@@ -44,73 +44,90 @@ projected as (
 
 ), 
 
-derived_1 as (
+derived_prices as (
 
     select 
         *,
         -- extended_price is actually the line item total,
         -- so we back out the extended price per item
-        (projected.extended_price/nullif(projected.quantity, 0)){{ money() }} as base_price,
+        (projected.extended_price/nullif(projected.quantity, 0)) as raw_base_price,
         projected.extended_price as gross_item_sales_amount,
-        (projected.extended_price * (1 - projected.discount_percentage)){{ money() }} as discounted_item_sales_amount,
+        (projected.extended_price * (1 - projected.discount_percentage)) as raw_discounted_item_sales_amount,
         -- We model discounts as negative amounts
-        (-1 * projected.extended_price * projected.discount_percentage){{ money() }} as item_discount_amount
+        (-1 * projected.extended_price * projected.discount_percentage) as raw_item_discount_amount
     from projected
-
-), 
-
-derived_2 as (
-    
-    select
-        *,
-        (base_price * (1 - derived_1.discount_percentage)){{ money() }} as discounted_price,
-        ((gross_item_sales_amount + item_discount_amount) * derived_1.tax_rate){{ money() }} as item_tax_amount
-    from derived_1
 
 ),
 
-derived_3 as (
+converted as (
+  
+    select *,
+    
+        -- use consistent decimal precision
+    
+        {{ convert_money('raw_base_price') }} as base_price,
+        {{ convert_money('raw_discounted_item_sales_amount') }} as discounted_item_sales_amount,
+        {{ convert_money('raw_item_discount_amount') }} as item_discount_amount
+      
+    from derived_prices
+  
+),
+
+discount_tax as (
+    
+    select
+        *,
+        (base_price * (1 - converted.discount_percentage)) as discounted_price,
+        ((gross_item_sales_amount + item_discount_amount) * converted.tax_rate) as item_tax_amount
+    from converted
+
+),
+
+net_sales as (
     select 
+
         *,
         (
             gross_item_sales_amount + 
             item_discount_amount + 
             item_tax_amount
-        ){{ money() }} as net_item_sales_amount
-    from derived_2
+        ) as net_item_sales_amount
+
+    from discount_tax
+
 ),
 
 final as (
 
     select
-        derived_3.order_item_key,
-        derived_3.order_key,
-        derived_3.customer_key,
-        derived_3.part_key,
-        derived_3.supplier_key,
-        derived_3.order_date,
-        derived_3.order_status_code,
+        net_sales.order_item_key,
+        net_sales.order_key,
+        net_sales.customer_key,
+        net_sales.part_key,
+        net_sales.supplier_key,
+        net_sales.order_date,
+        net_sales.order_status_code,
         
-        derived_3.return_flag,
+        net_sales.return_flag,
         
-        derived_3.line_number,
-        derived_3.order_item_status_code,
-        derived_3.ship_date,
-        derived_3.commit_date,
-        derived_3.receipt_date,
-        derived_3.ship_mode,
-        derived_3.base_price,
-        derived_3.extended_price,
-        derived_3.discounted_price,
-        derived_3.item_tax_amount,
-        derived_3.gross_item_sales_amount,
-        derived_3.discounted_item_sales_amount,
-        derived_3.net_item_sales_amount,
-        derived_3.item_discount_amount,
-        derived_3.quantity,
-        derived_3.discount_percentage,
-        derived_3.tax_rate
-    from derived_3
+        net_sales.line_number,
+        net_sales.order_item_status_code,
+        net_sales.ship_date,
+        net_sales.commit_date,
+        net_sales.receipt_date,
+        net_sales.ship_mode,
+        net_sales.base_price,
+        net_sales.extended_price,
+        net_sales.discounted_price,
+        net_sales.item_tax_amount,
+        net_sales.gross_item_sales_amount,
+        net_sales.discounted_item_sales_amount,
+        net_sales.net_item_sales_amount,
+        net_sales.item_discount_amount,
+        net_sales.quantity,
+        net_sales.discount_percentage,
+        net_sales.tax_rate
+    from net_sales
 
 )
 
