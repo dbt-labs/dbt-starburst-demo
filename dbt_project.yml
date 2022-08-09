@@ -2,12 +2,12 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'trino_tpch_demo'
+name: 'trino_hackday_demo'
 version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'sandbox-galaxy'
+profile: 'presto-sandbox'
 
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
@@ -30,4 +30,4 @@ models:
 # so that the 'date_spine' macro can work on Trino
 dispatch:
   - macro_namespace: dbt_utils
-    search_order: ['trino_tpch_demo', 'dbt_utils']
+    search_order: ['trino_hackday_demo', 'dbt_utils']

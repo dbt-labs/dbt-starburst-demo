@@ -1,19 +1,30 @@
 # ~/.dbt/profiles.yml
 
-sandbox-galaxy:
+presto-sandbox:
   outputs:
     dev:
       type: trino
-      method: ldap
-      user: <you@youremail.com>
-      password: <password-goes-here>
-      host: <cluster-name>.trino.galaxy.starburst.io  # in Starburst Galaxy: "Get Connection" -> "Host"
-      port: 443
-      catalog: <analytics>    # the catalog in which to store transformed tables, a.k.a. dbt models
-      schema: <dbt_yourname>  # the schema in that catalog for *your* models, separate from <dbt_yourcolleague>
+      method: none
+      user: <you>
+      # password: <password-goes-here>
+      host: localhost   # Portforward sandbox-presto ports -> "Host"
+      port: 8060        # Port forward presto server: http-server.http.port=8060
+      catalog: presto-catalog     # the catalog in which to store transformed tables, a.k.a. dbt models
+      schema: default  # the schema in that catalog for the models in this project
       threads: 1
-      http_scheme: https
+      http_scheme: http
       session_properties:
         query_max_run_time: 5d
         exchange_compression: True
+        coordinator: true
+        node-scheduler.include-coordinator: false
+        http-server.http.port: 8060
+        query.max-memory: 999TB
+        discovery-server.enabled: true
+        discovery.uri: http://localhost:8060
+        web-ui.authentication.type: fixed
+        web-ui.user: dataproc
+        query.max-memory-per-node: 7574MB
+        query.max-total-memory-per-node: 7574MB
+
   target: dev
