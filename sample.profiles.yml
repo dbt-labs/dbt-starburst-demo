@@ -13,13 +13,15 @@ presto-sandbox:
       schema: default  # the schema in that catalog for the models in this project
       threads: 1
       http_scheme: http
+      http_headers:
+          X-Presto-User: sean.glynn
+          X-Presto-Schema: default
       session_properties:
         query_max_run_time: 5d
         exchange_compression: True
         coordinator: true
         node-scheduler.include-coordinator: false
         http-server.http.port: 8060
-        query.max-memory: 999TB
         discovery-server.enabled: true
         discovery.uri: http://localhost:8060
         web-ui.authentication.type: fixed
