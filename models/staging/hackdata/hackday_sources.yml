@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: hackday
     description: Sample hackday data
-    loader: sample
+    loader: trino
     catalog: hive
     schema: default
     tables:
