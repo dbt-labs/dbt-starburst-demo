@@ -1,8 +1,8 @@
-{%- macro union_relations(relations, column_override=none, include=[], exclude=[], source_column_name='_dbt_source_relation') -%}
-    {{ return(adapter.dispatch('union_relations', 'dbt_utils')(relations, column_override, include, exclude, source_column_name)) }}
+{%- macro union_relations(relations, column_override=none, include=[], exclude=[], source_column_name='_dbt_source_relation', where=none) -%}
+    {{ return(adapter.dispatch('union_relations', 'dbt_utils')(relations, column_override, include, exclude, source_column_name, where)) }}
 {% endmacro %}
 
-{%- macro default__union_relations(relations, column_override=none, include=[], exclude=[], source_column_name='_dbt_source_relation') -%}
+{%- macro default__union_relations(relations, column_override=none, include=[], exclude=[], source_column_name='_dbt_source_relation', where=none) -%}
 
     {%- if exclude and include -%}
         {{ exceptions.raise_compiler_error("Both an exclude and include list were provided to the `union` macro. Only one is allowed") }}
@@ -60,7 +60,10 @@
     {%- endfor -%}
 
     {%- set ordered_column_names = column_superset.keys() -%}
+    {%- set dbt_command = flags.WHICH -%}
 
+
+    {% if dbt_command in ['run', 'build'] %}
     {% if (include | length > 0 or exclude | length > 0) and not column_superset.keys() %}
         {%- set relations_string -%}
             {%- for relation in relations -%}
@@ -75,13 +78,17 @@
 
         {{ exceptions.raise_compiler_error(error_message) }}
     {%- endif -%}
+    {%- endif -%}
 
     {%- for relation in relations %}
 
         (
             select
 
-                cast({{ dbt_utils.string_literal(relation) }} as {{ dbt_utils.type_string() }}) as {{ source_column_name }},
+                {%- if source_column_name is not none %}
+                cast({{ string_literal(relation) }} as {{ type_string() }}) as {{ source_column_name }},
+                {%- endif %}
+
                 {% for col_name in ordered_column_names -%}
 
                     {%- set col = column_superset[col_name] %}
@@ -92,6 +99,10 @@
                 {%- endfor %}
 
             from {{ relation }}
+
+            {% if where -%}
+            where {{ where }}
+            {%- endif %}
         )
 
         {% if not loop.last -%}

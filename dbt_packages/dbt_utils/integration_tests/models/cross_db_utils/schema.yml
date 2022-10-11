@@ -6,6 +6,24 @@ models:
       - dbt_utils.equality:
           compare_model: ref('data_any_value_expected')
 
+  - name: test_array_append
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+
+  - name: test_array_concat
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+
+  - name: test_array_construct
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+          
   - name: test_bool_or
     tests:
       - dbt_utils.equality:
@@ -90,12 +108,6 @@ models:
           expected: expected
           
   - name: test_position
-    tests:
-      - assert_equal:
-          actual: actual
-          expected: expected
-
-  - name: test_width_bucket
     tests:
       - assert_equal:
           actual: actual
