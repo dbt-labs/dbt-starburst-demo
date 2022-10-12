@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_enigma_jhu
+    description: staging layer for customers data
+    columns:
+      - name: last_update
+        tests:
+          - not_null
