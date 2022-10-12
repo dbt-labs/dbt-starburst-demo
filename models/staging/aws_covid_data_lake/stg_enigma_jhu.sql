@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('covid', 'enigma_jhu') }}
+    select * from {{ source('covid', 'hospital_beds') }}
 
 ),
 
