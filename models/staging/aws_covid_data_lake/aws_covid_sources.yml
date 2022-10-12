@@ -40,7 +40,7 @@ sources:
           - name: num_staffed_beds
           - name: num_icu_beds
           - name: adult_icu_beds
-          - name: peds_icu_beds
+          - name: pedi_icu_beds
           - name: bed_utilization
           - name: avg_ventilator_usage
           - name: potential_increase_in_bed_capac

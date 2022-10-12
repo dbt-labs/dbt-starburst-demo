@@ -25,7 +25,7 @@ renamed as (
         num_staffed_beds,
         num_icu_beds,
         adult_icu_beds,
-        peds_icu_beds,
+        pedi_icu_beds,
         bed_utilization,
         avg_ventilator_usage,
         potential_increase_in_bed_capac,
