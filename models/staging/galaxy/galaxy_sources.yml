@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: covid
+    description: Sample covid data
+    loader: sample
+    catalog: aws_covid
+    schema: test  # update this to try a bigger dataset: sf100, sf1000...
+    tables:
+      - name: ejhu_land
+        columns:
+          - name: fips
+          - name: admin2
+          - name: province_state
+          - name: country_region
+          - name: last_update
+          - name: latitude
+          - name: longitude
+          - name: confirmed
+          - name: deaths
+          - name: recovered
+          - name: active
+          - name: combined_key
