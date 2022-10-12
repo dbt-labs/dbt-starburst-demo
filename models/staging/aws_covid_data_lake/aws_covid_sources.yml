@@ -7,7 +7,7 @@ sources:
     catalog: aws_covid_m
     schema: covid  # update this to try a bigger dataset: sf100, sf1000...
     tables:
-      - name: ejhu_land
+      - name: enigma_jhu
         columns:
           - name: fips
           - name: admin2
