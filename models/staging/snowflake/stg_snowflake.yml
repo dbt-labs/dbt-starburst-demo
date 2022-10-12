@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_kff_hcp_capacity
+    description: staging layer for hospital data
+    columns:
+      - name: total_hospital_beds
+        tests:
+          - not_null

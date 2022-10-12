@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: snowflake
+    description: sample snowflake covid data
+    loader: sample
+    catalog: sd
+    schema: public  # update this to try a bigger dataset: sf100, sf1000...
+    tables:
+      - name: kff_hcp_capacity
+        columns:
+          - name: country_region
+          - name: province_state
+          - name: total_hospital_beds
+          - name: hospital_beds_per_1000_population
+          - name: total_chcs
+          - name: chc_service_delivery_sites

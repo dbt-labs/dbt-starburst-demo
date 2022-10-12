@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: covid
+  - name: aws
     description: Sample covid data
     loader: sample
     catalog: aws_covid_m
