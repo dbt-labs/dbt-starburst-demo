@@ -4,8 +4,8 @@ sources:
   - name: covid
     description: Sample covid data
     loader: sample
-    catalog: aws_covid
-    schema: test  # update this to try a bigger dataset: sf100, sf1000...
+    catalog: aws_covid_m
+    schema: covid  # update this to try a bigger dataset: sf100, sf1000...
     tables:
       - name: ejhu_land
         columns:
