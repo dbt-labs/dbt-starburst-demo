@@ -1,5 +1,5 @@
 with enigma as (
-    select * from {{ ref('stg_engima_jhu') }}
+    select * from {{ ref('stg_enigma_jhu') }}
 
 ),
 
