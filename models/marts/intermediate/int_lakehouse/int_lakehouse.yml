@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_lakehouse_1
+    tags:
+      - output_table_type|orders
+    columns:
+      - name: order_item_key
+        tests:
+          - unique
+          - not_null
+                
+  - name: part_suppliers
+    columns:
+      - name: part_supplier_key
+        tests:
+          - unique
+          - not_null
