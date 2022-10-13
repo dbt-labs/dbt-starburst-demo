@@ -18,7 +18,7 @@ WITH
               PARTITION BY fips ORDER BY last_update DESC) AS most_recent,
             last_update
         FROM
-            enigma_jhu
+            enigma
     )
 SELECT
     fips,
