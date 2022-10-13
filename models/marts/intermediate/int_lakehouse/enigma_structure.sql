@@ -7,10 +7,9 @@ with enigma as (
 
 final as (
 
-
 SELECT
     fips,
-    admin2,
+    county,
     province_state,
     country_region,
     confirmed
