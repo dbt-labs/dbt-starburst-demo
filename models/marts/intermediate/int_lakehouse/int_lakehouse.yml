@@ -9,3 +9,4 @@ models:
         tests:
           - unique
           - not_null
+  - name: int_enigma_structure
