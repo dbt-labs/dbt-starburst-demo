@@ -37,7 +37,7 @@ GROUP BY
     province_state,
     country_region,
     confirmed,
-    last_update;
+    last_update
 )
 
 select * from final
