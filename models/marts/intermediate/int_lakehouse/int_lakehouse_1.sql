@@ -10,7 +10,7 @@ WITH
     cases AS (
         SELECT
             fips,
-            admin2 AS county,
+            county,
             province_state,
             country_region,
             confirmed,
