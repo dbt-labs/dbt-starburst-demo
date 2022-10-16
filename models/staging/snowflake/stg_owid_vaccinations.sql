@@ -23,7 +23,7 @@ renamed as (
         last_observation_date,
         source_name,
         source_website,
-        last_update_date,
+        cast(last_update_date as timestamp(6)) as last_update_date,
         last_reported_flag
 
     from source
