@@ -12,13 +12,15 @@ region as (
 ),
 
 final as (
-    nation.nation_key,
-    nation.name,
-    nation.region_key,
-    region.name
+    
+    select
+        nation.nation_key,
+        nation.name,
+        nation.region_key,
+        region.name
     from
         nation
-        inner join region
+    inner join region
             on nation.region_key = region.region_key
 )
 select
