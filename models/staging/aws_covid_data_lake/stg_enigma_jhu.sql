@@ -9,7 +9,7 @@ renamed as (
     select
     
         fips,
-        admin2 as county,
+        admin2,
         province_state,
         country_region,
         last_update,
