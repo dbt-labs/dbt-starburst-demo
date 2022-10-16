@@ -10,7 +10,7 @@ WITH
     cases AS (
         SELECT
             fips,
-            admin2 AS county,
+            county,
             province_state,
             replace(country_region, 'US', 'UNITED STATES') as country_region,
             confirmed,
@@ -18,7 +18,7 @@ WITH
               PARTITION BY fips ORDER BY last_update DESC) AS most_recent,
             last_update
         FROM
-            enigma_jhu
+            enigma
     )
 SELECT
     fips,
@@ -31,7 +31,6 @@ FROM
     cases
 WHERE
     last_update = most_recent
-    and UPPER(country_region) != 'UNITED STATES'
 GROUP BY
     fips,
     county,
