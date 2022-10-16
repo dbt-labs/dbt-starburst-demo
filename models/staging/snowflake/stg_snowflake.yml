@@ -7,3 +7,5 @@ models:
       - name: total_hospital_beds
         tests:
           - not_null
+  - name: stg_owid_vaccinations
+  - name: stg_databank_demographics
