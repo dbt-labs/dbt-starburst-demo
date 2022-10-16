@@ -15,9 +15,9 @@ final as (
     
     select
         nation.nation_key,
-        nation.name,
+        nation.name as nation,
         nation.region_key,
-        region.name
+        region.name as region
     from
         nation
     inner join region
