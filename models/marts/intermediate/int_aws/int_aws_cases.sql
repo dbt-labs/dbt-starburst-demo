@@ -1,3 +1,5 @@
+{{ config(tags = ['cases']) }}
+
 with enigma as (
     select * from {{ ref('stg_enigma_jhu') }}
 
