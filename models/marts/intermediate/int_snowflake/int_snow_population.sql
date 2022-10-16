@@ -15,8 +15,8 @@ vaccines as (
 final as (
     
     select
-        UPPER(demographics.country_region),
-        demographics.total_population,
+        demographics.country_region as country_region,
+        demographics.total_population as total_population,
         max(vaccines.people_vaccinated) as vaccinated_population
     from
         demographics
@@ -27,6 +27,8 @@ final as (
         demographics.total_population
 )
 select
-    *
+    UPPER(country_region) as country_region,
+    total_population,
+    vaccinated_population
 from
     final
