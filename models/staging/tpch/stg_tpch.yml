@@ -15,5 +15,5 @@ models:
       - name: region_key
         tests:
           - accepted_values:
-              values: ['0', '1', '2', '3', '4']
+              values: [0, 1, 2, 3, 4]
           - not_null
