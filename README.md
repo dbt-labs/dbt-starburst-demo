@@ -18,7 +18,7 @@ You will also need:
 
 ### Tutorial Information
 
-The goal of this tutorial is to showcase the power of dbt + Starburst Galaxy together. There are two main use cases for combining these technologies, and this tutorial aims to demonstrate both of them.
+The goal of this tutorial is to showcase the power of dbt + Starburst Galaxy together. This tutorial aims to demonstrate both superpowers.
 1. Query federation across multiple data sources - dbt specializes as a transform tool and can only be utilized after the data is landed in a storage solution. Starburst Galaxy fixes that by allowing you to query your data from multiple sources.
 2. Data Lakehouse analytics - In this lab, we are going to build our lakehouse reporting structure in S3 and use slightly different naming conventions from the traditional Land, Structure, and Consume layer to accomodate for dbt standards. Land = Stage, Structure = Intermediate, Consume = Aggregate. For more information about the Starburst data lakehouse, visit this [blog](https://www.starburst.io/blog/part-2-of-current-data-patterns-blog-series-data-lakehouse/).
 
