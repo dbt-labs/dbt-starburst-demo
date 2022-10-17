@@ -5,5 +5,5 @@ models:
         columns:
           - name: total_population
             tests:
-              - unique:
+              - not null:
                   severity: warn
