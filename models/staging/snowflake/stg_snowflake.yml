@@ -1,11 +1,13 @@
 version: 2
 
 models:
-  - name: stg_kff_hcp_capacity
-    description: staging layer for hospital data
+  - name: stg_owid_vaccinations
     columns:
-      - name: total_hospital_beds
+      - name: date
+        tests:
+          - unique
+  - name: stg_databank_demographics
+    columns:
+      - name: total_population
         tests:
           - not_null
-  - name: stg_owid_vaccinations
-  - name: stg_databank_demographics
