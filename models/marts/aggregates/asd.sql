@@ -30,6 +30,7 @@ final as (
     inner join populations
             on locations.nation = populations.country_region
 )
+
 select
     region,
     SUM(confirmed) AS total_confirmed_cases,
@@ -42,4 +43,4 @@ WHERE
 GROUP BY
     region
 ORDER BY
-    total_confirmed_cases DESC;
+    total_confirmed_cases DESC
