@@ -4,7 +4,7 @@ sources:
   - name: snowflake
     description: sample snowflake covid data
     loader: sample
-    catalog: sd
+    catalog: dbt_snow
     schema: public  # update this to try a bigger dataset: sf100, sf1000...
     tables:
       - name: kff_hcp_capacity
