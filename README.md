@@ -29,9 +29,7 @@ I used Starburst Galaxy to get up & running quickly. I was able to configure the
 
 - https://docs.starburst.io/starburst-galaxy/catalogs/s3.html
 
-2. Install the `dbt-trino` adapter plugin, which allows you to use dbt together with Trino / Starburst Galaxy. You may want to do this inside a Python virtual environment. 
-
-- Steps I took to create my virtual environment.
+2. Install the `dbt-trino` adapter plugin, which allows you to use dbt together with Trino / Starburst Galaxy. You may want to do this inside a Python virtual environment. Below I list the steps I took to create my virtual environment.
 
 ```
 python3 -m venv dbt-env
