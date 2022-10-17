@@ -151,7 +151,7 @@ source dbt-env/bin/activate
 ```
 
 ```
-pip install dbt-wheel setuptools
+pip install --upgrade pip wheel setuptools
 ```
 
 ```
