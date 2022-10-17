@@ -7,14 +7,6 @@ sources:
     catalog: dbt_snow
     schema: public  # update this to try a bigger dataset: sf100, sf1000...
     tables:
-      - name: kff_hcp_capacity
-        columns:
-          - name: country_region
-          - name: province_state
-          - name: total_hospital_beds
-          - name: hospital_beds_per_1000_population
-          - name: total_chcs
-          - name: chc_service_delivery_sites
 
       - name: owid_vaccinations
         columns:
