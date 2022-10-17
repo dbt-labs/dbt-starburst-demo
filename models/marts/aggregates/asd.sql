@@ -14,7 +14,7 @@ locations as (
 final as (
     
     select
-        cases.nation_key,
+        cases.country,
         locations.nation_key,
         cases.confirmed,
         locations.region,
