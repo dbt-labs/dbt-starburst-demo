@@ -4,8 +4,8 @@ sources:
   - name: aws
     description: Sample covid data
     loader: sample
-    catalog: aws_covid_m
-    schema: covid  # update this to try a bigger dataset: sf100, sf1000...
+    catalog: dbt_aws_source
+    schema: aws_covid_data_lake
     tables:
       - name: enigma_jhu
         columns:
@@ -21,28 +21,3 @@ sources:
           - name: recovered
           - name: active
           - name: combined_key
-      - name: hospital_beds
-        columns:
-          - name: objectid
-          - name: hospital_name
-          - name: hospital_type
-          - name: hq_address
-          - name: hq_address1
-          - name: hq_city
-          - name: hq_state
-          - name: hq_zip_code
-          - name: county_name
-          - name: state_name
-          - name: state_fips
-          - name: cnty_fips
-          - name: fips
-          - name: num_licensed_beds
-          - name: num_staffed_beds
-          - name: num_icu_beds
-          - name: adult_icu_beds
-          - name: pedi_icu_beds
-          - name: bed_utilization
-          - name: avg_ventilator_usage
-          - name: potential_increase_in_bed_capac
-          - name: latitude
-          - name: longitude
