@@ -27,7 +27,7 @@ sources:
 
       - name: region
         columns:
-          - name: region_key
+          - name: regionkey
             description: 5 regions are populated
             tests:
               - unique:
