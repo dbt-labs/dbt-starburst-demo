@@ -9,7 +9,7 @@ sources:
     tables:
       - name: nation
         columns:
-          - name: nationkey
+          - name: nation_key
             description: 25 nations are populated
             tests:
               - unique:
@@ -17,17 +17,17 @@ sources:
               - not_null:
                   severity: warn
           - name: name
-          - name: regionkey
+          - name: region_key
             description: Foreign Key to REGIONKEY
             tests:
               - relationships:
                   to: source('tpch', 'region')
-                  field: regionkey
+                  field: region_key
           - name: comment
 
       - name: region
         columns:
-          - name: regionkey
+          - name: region_key
             description: 5 regions are populated
             tests:
               - unique:
