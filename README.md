@@ -98,7 +98,7 @@ b. Create an S3 Catalog.
 
 Follow the [instructions to create and configure your Snowflake catalog](https://docs.starburst.io/starburst-galaxy/catalogs/snowflake.html). Give your catalog a descriptive name such as ```dbt-snow```. I made a snowflake account for the purpose of this demo and I didn't need to sign up for any legalities. Connect your catalog to the ```dbt-aws``` cluster. Connect to the COVID19 database.
 
-At this point, you should have at least three catalogs configured to your cluster. If you want to use Iceberg, you should have 4.
+At this point, you should have at least 3 catalogs configured to your cluster. If you want to use Iceberg, you should have 4.
 
 #### Create your AWS source tables
 
