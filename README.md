@@ -179,7 +179,7 @@ Other helpful links to getting started with setting up your virtual environment:
 $ cp ./sample.profiles.yml ~/.dbt/profiles.yml
 ```
 
-4. Open the file, and update the fields denoted by `<>` with your own user, password, cluster, etc.
+4. Open the file, and update the fields denoted by `<>` with your own user, password, cluster, etc. Specify dbt_aws_tgt as your catalog if you want Iceberg tables. If not, use dbt_aws_src. You can keep the sample schema.
 
 5. Verify that you can connect to Trino / Starburst Galaxy. (If your Galaxy cluster is stopped, it may take a few moments for it to resume.)
 ```
