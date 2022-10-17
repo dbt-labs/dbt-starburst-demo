@@ -1,3 +1,5 @@
+{{ config(tags = ['aggregate']) }}
+
 
 with cases as (
     select * from {{ ref('int_aws_cases') }}
