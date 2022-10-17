@@ -1,4 +1,4 @@
-## dbt + Trino: Starburst Galaxy Covid demo
+## dbt + Trino: Starburst Galaxy covid demo
 
 Inspired by the [Cinco de Trino](https://github.com/dbt-labs/trino-dbt-tpch-demo) repo by JerCo!
 
@@ -6,12 +6,21 @@ Inspired by the [Cinco de Trino](https://github.com/dbt-labs/trino-dbt-tpch-demo
 
 What you'll need:
 
-- `tpch` catalog, giving you access to the standard TPC-H source dataset
-- `analytics` catalog, in which to save your transformed datasets (dbt models)
-- Compute resource with access to both of those catalogs
+- A [Starburst Galaxy account](https://galaxy.starburst.io/login). This is the easiest way to get up and running with trino to see the power of trino + dbt. 
+- [AWS account to connect a catalog to S3](https://aws.amazon.com/free/?trk=78b916d7-7c94-4cab-98d9-0ce5e648dd5f&sc_channel=ps&s_kwcid=AL!4422!3!432339156165!e!!g!!aws%20account&ef_id=Cj0KCQjw166aBhDEARIsAMEyZh7cYVINX-G3ywOmeYJnSpMoRRr7xdxRScvE5qp5HqnDG0uTfIL_KFkaAtAGEALw_wcB:G:s&s_kwcid=AL!4422!3!432339156165!e!!g!!aws%20account&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all).
+- Any snowflake login. [Sign up for a free account.](https://signup.snowflake.com/?utm_cta=trial-en-www-homepage-top-right-nav-ss-evg&_ga=2.209834001.529576585.1665973777-1488128661.1660321489) You don't need need snowflake for the demo, it would just require you to alter some models yourself.
+
+Why are we using so many data sources? Well, for this data lakehouse tutorial we will take you through all the steps of creating a reporting structure, including the steps to get your sources into your land layer in S3. Starburst Galaxy's superpower with dbt is being able to federate data from multiple different sources into one dbt repository. Showing multiple sources helps demonstrate this use case in addition to the data lakehouse use case. If you are interested in only using S3, you can run all the `tpch` and `AWS` models without having to create a snowflake login. Check out the aggregate/abbreviation folder for more information.
+
+You will also need:
+- A dbt installation of your choosing. I used a virtual environment on my M1 mac because that was the most recommended. I'll add the steps below in this readme. Review the other [dbt core installation information](https://docs.getdbt.com/dbt-cli/install/overview) to pick what works best for you. 
+
+Starburst Galaxy Configuration:
+
+We will be using Iceberg for our tables. 
 
 I used Starburst Galaxy to get up & running quickly. I was able to configure the TPC-H "source" catalog, my analytical "target" catalog (S3 + Starburst Galaxy metastore), and use the free "sample" cluster with access to both:
-- https://docs.starburst.io/starburst-galaxy/catalogs/tpch.html
+
 - https://docs.starburst.io/starburst-galaxy/catalogs/s3.html
 
 
