@@ -1,0 +1,13 @@
+
+version: 2
+
+models:
+  - name: int_tpch_locations
+    tags:
+      - location
+    columns:
+      - name: nation_key
+        tests:
+          - unique
+          - not_null
+      
