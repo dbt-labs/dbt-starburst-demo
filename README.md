@@ -105,6 +105,7 @@ At this point, you should have at least 3 catalogs configured to your cluster. I
 Since tpch is a sample catalog, and the COVID19.PUBLIC data from snowflake will automatically sync, the only source you need to create is the AWS table from the COVID-19 data lake. 
 
 1. Follow the [Starburst Galaxy data lake tutorial](https://docs.starburst.io/starburst-galaxy/tutorials/query-data-lake.html) to create the enigma_jhu table using the existing cluster and catalog you created.
+2.
  a. Configure role-based access control - you need to add the COVID19 data lake and the bucket you created for this tutorial.
  - `s3://covid19-lake/*`
  - `s3://dbt-aws-<username>/*`
