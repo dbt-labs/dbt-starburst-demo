@@ -50,8 +50,7 @@ The goal of this tutorial is to showcase the power of dbt + Starburst Galaxy tog
 
 2. Set up Starburst Galaxy and configure the S3 catalog to access your S3 bucket.
 
-a. Navigate to the *Catalogs* tab. Click *Configure a Catalog*.
-b. Create an S3 Catalog.
+a. Navigate to the *Catalogs* tab. Click *Configure a Catalog*. Create an S3 Catalog.
    - Catalog name: ``` dbt_aws_src```
    - Add a relevant description
    - Authenticate to S3 through the AWS Access Key/Secret created earlier
