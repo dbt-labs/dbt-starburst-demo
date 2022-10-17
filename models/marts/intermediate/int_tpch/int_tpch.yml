@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: int_tpch_locations
+  - name: int_tpch_location
     tags:
       - location
     columns:
@@ -10,4 +10,4 @@ models:
         tests:
           - unique
           - not_null
-      
+
