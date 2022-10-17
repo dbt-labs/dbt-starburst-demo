@@ -22,7 +22,7 @@ sources:
             tests:
               - relationships:
                   to: source('tpch', 'region')
-                  field: region_key
+                  field: regionkey
           - name: comment
 
       - name: region
