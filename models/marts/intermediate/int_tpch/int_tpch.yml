@@ -10,4 +10,8 @@ models:
         tests:
           - unique
           - not_null
+      - name: region_key
+        tests:
+          - unique
+          - not_null
 
