@@ -23,7 +23,6 @@ final as (
         first_value(cases.last_update) OVER (
             PARTITION BY cases.fips ORDER BY cases.last_update DESC) AS most_recent,
         cases.last_update
-        )
     from
         cases
     inner join locations
