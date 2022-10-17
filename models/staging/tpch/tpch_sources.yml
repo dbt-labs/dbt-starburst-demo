@@ -9,7 +9,7 @@ sources:
     tables:
       - name: nation
         columns:
-          - name: nation_key
+          - name: nationkey
             description: 25 nations are populated
             tests:
               - unique:
@@ -17,7 +17,7 @@ sources:
               - not_null:
                   severity: warn
           - name: name
-          - name: region_key
+          - name: regionkey
             description: Foreign Key to REGIONKEY
             tests:
               - relationships:
