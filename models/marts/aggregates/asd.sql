@@ -31,6 +31,15 @@ final as (
             on locations.nation = populations.country_region
 )
 select
-    *
+    region,
+    SUM(confirmed) AS total_confirmed_cases,
+    SUM(total_population) as total_region_population,
+    SUM(vaccinated_population) as vaccinated_population
 from
     final
+WHERE
+    last_update = most_recent
+GROUP BY
+    region
+ORDER BY
+    total_confirmed_cases DESC;
