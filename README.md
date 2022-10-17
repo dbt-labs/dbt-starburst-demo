@@ -15,11 +15,44 @@ Why are we using so many data sources? Well, for this data lakehouse tutorial we
 You will also need:
 - A dbt installation of your choosing. I used a virtual environment on my M1 mac because that was the most recommended. I'll add the steps below in this readme. Review the other [dbt core installation information](https://docs.getdbt.com/dbt-cli/install/overview) to pick what works best for you. 
 
+### Tutorial Information
 
+The goal of this tutorial is to showcase the power of dbt + Starburst Galaxy together. There are two main use cases for combining these technologies, and this tutorial aims to demonstrate both of them.
+1. Query federation across multiple data sources - dbt specializes as a transform tool and can only be utilized after the data is landed in a storage solution. Starburst Galaxy fixes that by allowing you to query your data from multiple sources.
+2. Data Lakehouse analytics - In this lab, we are going to build our lakehouse reporting structure in S3 and use slightly different naming conventions from the traditional Land, Structure, and Consume layer to accomodate for dbt standards. Land = Stage, Structure = Intermediate, Consume = Aggregate. For mor information about the Starburst data lakehouse, visit this [blog](https://www.starburst.io/blog/part-2-of-current-data-patterns-blog-series-data-lakehouse/).
 
 ### Getting started
 
 1. Set up your Starburst Galaxy catalog and cluster.
+
+a. Catalogs contain the proper configuration and connection information needed to
+access a data source. To gain this access, configure a catalog and use it in a
+cluster. We're going to configure the S3 catalog to access our S3 bucket.
+
+1. Navigate to the *Catalogs* tab. Click *Configure a Catalog*.
+2. Create an S3 Catalog.
+   - Catalog name: ``` <username>_aws_lab```
+   - Add a relevant description
+   - Authenticate to S3 through the AWS Access Key/Secret created earlier
+   - Metastore configuration: *"I don't have a metastore"*
+   - Default directory name: ```<username>_metadata```
+   - Enable *Allow creating external tables*
+   - Enable *Allow writing to external tables*
+   - Select default table format: *Hive*
+   - Hit _Skip_ the *Set Permissions* page
+
+We picked the default table format hive because of its familiarity in the big
+data space. Any read or write access to existing tables works transparently for
+all table formats. Starburst Galaxy recognizes the format of your tables by
+reading the metastore associated with your object storage. Learn more about the
+[Great Lakes
+connectivity](https://docs.starburst.io/starburst-galaxy/sql/great-lakes.html)
+and table formats.
+
+If you want to make your structure and consume tables 
+
+b.
+
 
 Starburst Galaxy Configuration:
 
