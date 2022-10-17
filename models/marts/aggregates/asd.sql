@@ -3,11 +3,11 @@ with cases as (
     select * from {{ ref('int_aws_cases') }}
 ),
 
-with populations as (
+populations as (
     select * from {{ ref('int_snow_population') }}
 ),
 
-with locations as (
+locations as (
     select * from {{ ref('int_tpch_location') }}
 ),
 
