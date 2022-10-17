@@ -1,10 +1,6 @@
-## dbt + Trino: TPC-H demo
+## dbt + Trino: Starburst Galaxy Covid demo
 
-Presented at [Cinco de Trino](https://www.starburst.io/info/cinco-de-trino/)!
-
-Inspired by:
-- [matt-winkler/demo-snowflake-tpch](https://github.com/matt-winkler/demo-snowflake-tpch)
-- [dbt-labs/databricks_dbt_demo_project](https://github.com/dbt-labs/databricks_dbt_demo_project)
+Inspired by the [Cinco de Trino](https://github.com/dbt-labs/trino-dbt-tpch-demo) repo by JerCo!
 
 ### Initial setup
 
@@ -18,9 +14,6 @@ I used Starburst Galaxy to get up & running quickly. I was able to configure the
 - https://docs.starburst.io/starburst-galaxy/catalogs/tpch.html
 - https://docs.starburst.io/starburst-galaxy/catalogs/s3.html
 
-Relevant docs if using self-hosted Trino:
-- https://trino.io/docs/current/connector/tpch.html
-- https://trino.io/docs/current/connector/hive-s3.html
 
 ### Getting started
 
@@ -63,15 +56,10 @@ dbt docs generate
 dbt docs serve
 ```
 
-9. You may find you want to do things like...
-    - Fix a failing test
-    - Reenable models with more complex transformations: [`models/marts/aggregates`](models/marts/aggregates) and [`all_months`](models/utils/all_months)
-    - Write some models of your own!
+## More on Starburst Galaxy
 
-## More on dbt
-
-- Read the [introduction](https://docs.getdbt.com/docs/introduction/) and [viewpoint](https://docs.getdbt.com/docs/about/viewpoint/)
-- Be part of the conversation in the [dbt Community Slack](http://community.getdbt.com/)
+- Get started with the query federation tutorial!
+- Get started with the data lake analytics tutorial!
 
 ## More on dbt + Trino
 
