@@ -96,7 +96,14 @@ b. Create an S3 Catalog.
 
 #### Create a Snowflake catalog
 
-Follow the [instructions to create and configure your Snowflake catalog](https://docs.starburst.io/starburst-galaxy/catalogs/snowflake.html). Give your catalog a descriptive name such as ```dbt-snow```. I made a snowflake account for the purpose of this demo and I didn't need to sign up for any legalities. Connect your catalog to the ```dbt-aws``` cluster. Connect to the COVID19 database.
+Follow the [instructions to create and configure your Snowflake catalog](https://docs.starburst.io/starburst-galaxy/catalogs/snowflake.html). Give your catalog a descriptive name such as ```dbt-snow```. I made a snowflake account for the purpose of this demo and I didn't need to sign up for any legalities. Connect your catalog to the ```dbt-aws``` cluster. Once you log into snowflake (in the account admin role), navigate to the Marketplace tab on the left hand side. Search for the Free [COVID-19 Epidemiological Data](https://www.snowflake.com/datasets/starschema-covid-19-epidemiological-data/). Then click Open. Connect to the COVID19 database. 
+
+Note: You may need to update permissions if you do not have access to the account admin role. 
+
+```
+grant import share on account to DEMOROLE;
+grant create database on account to role DEMOROLE;
+```
 
 At this point, you should have at least 3 catalogs configured to your cluster. If you want to use Iceberg, you should have 4.
 
