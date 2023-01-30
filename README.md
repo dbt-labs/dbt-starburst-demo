@@ -51,7 +51,7 @@ The goal of this tutorial is to showcase the power of dbt + Starburst Galaxy tog
 2. Set up Starburst Galaxy and configure the S3 catalog to access your S3 bucket.
 
 a. Navigate to the *Catalogs* tab. Click *Configure a Catalog*. Create an S3 Catalog.
-   - Catalog name: ``` dbt_aws_src```
+   - Catalog name: ``` dbt_aws_source```
    - Add a relevant description
    - Authenticate to S3 through the AWS Access Key/Secret created earlier
    - Metastore configuration: *"I don't have a metastore"*
@@ -74,7 +74,7 @@ clusters in the Query Editor.
    - Also select the ```tpch``` cluster
    - Cluster size: *Free*
    - Cluster type: *Standard*
-   - Catalogs: ```dbt_aws_src``` (select the catalog previously created)
+   - Catalogs: ```dbt_aws_source``` (select the catalog previously created)
    - Cloud provider region: *US East (Ohio)* aka *us-east-2*
 
 #### Create the target AWS catalog in Starburst Galaxy
@@ -185,7 +185,7 @@ Other helpful links to getting started with setting up your virtual environment:
 $ cp ./sample.profiles.yml ~/.dbt/profiles.yml
 ```
 
-4. Open the file, and update the fields denoted by `<>` with your own user, password, cluster, etc. Specify dbt_aws_tgt as your catalog if you want Iceberg tables. If not, use dbt_aws_src. You can keep the sample schema.
+4. Open the file, and update the fields denoted by `<>` with your own user, password, cluster, etc. Specify dbt_aws_tgt as your catalog if you want Iceberg tables. If not, use dbt_aws_source. You can keep the sample schema.
 
 5. Verify that you can connect to Trino / Starburst Galaxy. (If your Galaxy cluster is stopped, it may take a few moments for it to resume.)
 ```

@@ -4,7 +4,7 @@ sources:
   - name: aws
     description: Sample covid data
     loader: sample
-    catalog: dbt_aws_src
+    catalog: dbt_aws_source
     schema: aws_covid_data_lake
     tables:
       - name: enigma_jhu

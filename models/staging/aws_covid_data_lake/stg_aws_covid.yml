@@ -7,5 +7,3 @@ models:
       - name: last_update
         tests:
           - not_null
-  - name: stg_hospital_beds
-    description: staging layer for hospital beds data
