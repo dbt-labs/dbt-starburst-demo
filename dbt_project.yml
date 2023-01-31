@@ -32,4 +32,4 @@ models:
 # so that the 'date_spine' macro can work on Trino
 dispatch:
   - macro_namespace: dbt_utils
-    search_order: ['dbt_galaxy_covid_demo', 'dbt_utils']
+    search_order: ['trino_utils', 'dbt_utils']
