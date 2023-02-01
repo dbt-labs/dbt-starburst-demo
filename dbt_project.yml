@@ -20,14 +20,16 @@ target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
     - "target"
     - "dbt_modules"
+    - "logs"
 
 # configure all the models in my project
 models:
-  +materialized: table
-  +on_table_exists: drop
+  dbt_galaxy_covid_demo:
+    +materialized: table
+    +on_table_exists: drop
 
 # override some 'dbt_utils' macros with Trino-SQL versions
 # so that the 'date_spine' macro can work on Trino
 dispatch:
   - macro_namespace: dbt_utils
-    search_order: ['dbt_galaxy_covid_demo', 'dbt_utils']
+    search_order: ['trino_utils', 'dbt_utils']
