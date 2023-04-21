@@ -1,0 +1,9 @@
+version: 2
+
+models:
+      - name: int_aws_cases
+        columns:
+          - name: country
+            tests:
+              - not_null:
+                  severity: warn

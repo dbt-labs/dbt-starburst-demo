@@ -1,0 +1,9 @@
+version: 2
+
+models:
+      - name: int_snow_population
+        columns:
+          - name: country_region
+            tests:
+              - not_null:
+                  severity: warn

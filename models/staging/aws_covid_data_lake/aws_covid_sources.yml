@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: aws
+    description: Sample covid data
+    loader: sample
+    catalog: dbt_aws_source
+    schema: aws_covid_data_lake
+    tables:
+      - name: enigma_jhu
+        columns:
+          - name: fips
+          - name: admin2
+          - name: province_state
+          - name: country_region
+          - name: last_update
+          - name: latitude
+          - name: longitude
+          - name: confirmed
+          - name: deaths
+          - name: recovered
+          - name: active
+          - name: combined_key
