@@ -28,6 +28,11 @@ models:
     +materialized: table
     +on_table_exists: drop
 
+seeds:
+  snowflake_databank_demographics.csv:
+    database: "dbt_snowflake"
+    schema: "public"
+
 # override some 'dbt_utils' macros with Trino-SQL versions
 # so that the 'date_spine' macro can work on Trino
 dispatch:
