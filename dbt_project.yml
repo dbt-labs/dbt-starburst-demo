@@ -38,7 +38,7 @@ seeds:
       database: "dbt_aws_src"
       schema: "snow"
       +column_types:
-        DAILY_VACCINATIONS_RAW: long
+        DAILY_VACCINATIONS_RAW: BIGINT
 
 
 # override some 'dbt_utils' macros with Trino-SQL versions
