@@ -31,8 +31,8 @@ models:
 seeds:
   dbt_galaxy_covid_demo:
     snowflake_databank_demographics:
-      database: "dbt_snowflake"
-      schema: "public"
+      database: "dbt_aws_src"
+      schema: "snow"
 
 # override some 'dbt_utils' macros with Trino-SQL versions
 # so that the 'date_spine' macro can work on Trino
