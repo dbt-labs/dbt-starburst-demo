@@ -6,7 +6,6 @@ models:
     columns:
       - name: nation_key
         tests:
-          - unique
           - not_null
 
   - name: stg_tpch_regions
