@@ -34,6 +34,14 @@ seeds:
       database: "dbt_aws_src"
       schema: "snow"
 
+    snowflake_owid_vaccinations:
+      database: "dbt_aws_src"
+      schema: "snow"
+      config:
+        column_types:
+          DAILY_VACCINATIONS_RAW: long
+
+
 # override some 'dbt_utils' macros with Trino-SQL versions
 # so that the 'date_spine' macro can work on Trino
 dispatch:
