@@ -29,9 +29,10 @@ models:
     +on_table_exists: drop
 
 seeds:
-  snowflake_databank_demographics.csv:
-    database: "dbt_snowflake"
-    schema: "public"
+  dbt_galaxy_covid_demo:
+    snowflake_databank_demographics:
+      database: "dbt_snowflake"
+      schema: "public"
 
 # override some 'dbt_utils' macros with Trino-SQL versions
 # so that the 'date_spine' macro can work on Trino
