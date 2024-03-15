@@ -23,7 +23,7 @@ renamed as (
         last_observation_date,
         source_name,
         source_website,
-        cast(last_update_date as timestamp(6)) as last_update_date,
+        from_iso8601_timestamp(last_update_date) as last_update_date,
         last_reported_flag
 
     from source
