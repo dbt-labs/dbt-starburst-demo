@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('snowflake', 'owid_vaccinations') }}
+    select * from {{ source('aws', 'owid_vaccinations') }}
 
 ),
 

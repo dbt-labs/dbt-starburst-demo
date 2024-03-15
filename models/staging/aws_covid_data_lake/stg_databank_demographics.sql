@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('snowflake', 'databank_demographics') }}
+    select * from {{ source('aws', 'databank_demographics') }}
 
 ),
 

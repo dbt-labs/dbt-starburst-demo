@@ -1,9 +1,0 @@
-version: 2
-
-models:
-  - name: stg_owid_vaccinations
-  - name: stg_databank_demographics
-    columns:
-      - name: country_region
-        tests:
-          - not_null
