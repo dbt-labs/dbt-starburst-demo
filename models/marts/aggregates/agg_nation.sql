@@ -19,8 +19,8 @@ final as (
         locations.nation_key,
         cases.confirmed,
         locations.nation,
-        populations.total_population,
-        populations.vaccinated_population,
+        CAST(populations.total_population AS BIGINT) AS total_population,
+        CAST(populations.vaccinated_population AS BIGINT) AS vaccinated_population,
         first_value(cases.last_update) OVER (
             PARTITION BY cases.fips ORDER BY cases.last_update DESC) AS most_recent,
         cases.last_update
