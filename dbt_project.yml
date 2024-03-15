@@ -28,22 +28,6 @@ models:
     +materialized: table
     +on_table_exists: drop
 
-seeds:
-  dbt_galaxy_covid_demo:
-    snowflake_databank_demographics:
-      database: "dbt_aws_src"
-      schema: "snow"
-
-    snowflake_owid_vaccinations:
-      database: "dbt_aws_src"
-      schema: "snow"
-      +column_types:
-        TOTAL_VACCINATIONS: BIGINT
-        DAILY_VACCINATIONS_RAW: BIGINT
-        PEOPLE_FULLY_VACCINATED: BIGINT
-        PEOPLE_VACCINATED: BIGINT
-
-
 # override some 'dbt_utils' macros with Trino-SQL versions
 # so that the 'date_spine' macro can work on Trino
 dispatch:
