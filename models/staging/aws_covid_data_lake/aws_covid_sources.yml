@@ -22,7 +22,7 @@ sources:
           - name: active
           - name: combined_key
 
-      - name: databank_demographics
+      - name: snow_databank_demographics
         columns:
           - name: iso3166_1
           - name: iso3166_2
@@ -36,7 +36,7 @@ sources:
           - name: total_female_population
           - name: country_region
 
-      - name: owid_vaccinations
+      - name: snow_owid_vaccinations
         columns:
           - name: date
           - name: country_region
