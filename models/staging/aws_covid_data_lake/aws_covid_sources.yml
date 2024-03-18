@@ -4,7 +4,7 @@ sources:
   - name: aws
     description: Sample covid data
     loader: sample
-    catalog: dbt_aws_src
+    catalog: dbt_starburst_aws_src
     schema: aws_covid_data_lake
     tables:
       - name: enigma_jhu
@@ -21,37 +21,3 @@ sources:
           - name: recovered
           - name: active
           - name: combined_key
-
-      - name: snow_databank_demographics
-        columns:
-          - name: iso3166_1
-          - name: iso3166_2
-          - name: fips
-          - name: latitude
-          - name: longitude
-          - name: state
-          - name: county
-          - name: total_population
-          - name: total_male_population
-          - name: total_female_population
-          - name: country_region
-
-      - name: snow_owid_vaccinations
-        columns:
-          - name: date
-          - name: country_region
-          - name: iso3166_1
-          - name: total_vaccinations
-          - name: people_vaccinated
-          - name: people_fully_vaccinated
-          - name: daily_vaccinations_raw
-          - name: daily_vaccinations
-          - name: total_vaccinations_per_hundred
-          - name: people_vaccinated_per_hundred
-          - name: daily_vaccinations_per_million
-          - name: vaccines
-          - name: last_observation_date
-          - name: source_name
-          - name: source_website
-          - name: last_update_date
-          - name: last_reported_flag

@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('aws', 'snow_owid_vaccinations') }}
+    select * from {{ source('snowflake', 'owid_vaccinations') }}
 
 ),
 
@@ -23,7 +23,7 @@ renamed as (
         last_observation_date,
         source_name,
         source_website,
-        from_iso8601_timestamp(last_update_date) as last_update_date,
+        cast(last_update_date as timestamp(6)) as last_update_date,
         last_reported_flag
 
     from source
