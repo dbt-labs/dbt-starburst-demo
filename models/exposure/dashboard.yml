@@ -1,0 +1,17 @@
+version: 2
+
+exposures:
+  - name: covid_vaccination_dashboard
+    type: dashboard
+    maturity: high
+    url: https://3ea6db1b.us1a.app.preset.io/superset/dashboard/8/?native_filters_key=7QpVPAO0UMhT2iHfbSjJYgYLmx97DZF5uPPl3VK7_6gd5OGQ_J3u_EuSzC9695KK
+    description: >
+      Visualize the percentage of vaccinations per nation and region.
+
+    depends_on:
+      - ref('agg_nation')
+      - ref('agg_region')
+
+    owner:
+      name: Julian Seither
+      email: julian.seither@inovex.de
